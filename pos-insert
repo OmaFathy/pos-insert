@@ -1,0 +1,113 @@
+#include <bits/stdc++.h>
+#define ll long long int
+using namespace std;
+//ربنا أكرم من أي حد
+//Jerry&Tom
+//O_SOFTWARE
+//هو انا هحل؟انتو بتوعي وانا بتعاكوو يتهدوني يهدكو
+void omar(){
+ios::sync_with_stdio(0);
+cin.tie(0);
+
+}
+    struct node
+  //  | 1 | o-----> دي نود
+
+{
+    int data; //النود بتتكون من الداتا والادريس بتاعت الداتا الي بعدها
+    struct node*next;
+    // | data | address
+}*head,*temp;
+void insert_pos(int data,int pos)
+{ int i=1;
+    struct node *newnode;
+    newnode= new node();
+
+
+if(newnode == NULL)
+    {
+        cout<<"Unable to allocate memory.\n";
+    }
+    else
+    {
+         newnode->data = data; // Link data part
+        newnode->next = NULL;
+
+        temp = head;
+    for(i=2; i<=pos-1; i++)
+        {
+            temp = temp->next;
+
+            if(temp == NULL)
+                break;
+        }
+        if(temp != NULL)
+        {
+
+            newnode->next = temp->next;
+
+
+            temp->next = newnode;
+
+            cout<<"DATA INSERTED SUCCESSFULLY\n";
+        }
+        else
+        {
+            cout<<"UNABLE TO INSERT DATA AT THE GIVEN POSITION\n";
+        }
+
+
+       temp=head;
+    }
+}
+
+int main()
+{
+int deta,pos;
+    int choice=1;// دي الي هتخليني اخزن علي مزاج اليوزر بقي
+
+ struct node*newnode; //مل نسخ بوينتر لل
+ head=0;  //| head|--address the first element in linked list  -> | data | address
+ while(choice)
+{
+newnode= new node();//  واحطها فالنيو نود يمعلمnode بعمل نسخه من الاستراكت
+
+ cout<<"enter the data:\n";//بقول لليوزر حط الداتا يعمنا
+ cin>>newnode->data;// بخزنها(خلصانه يجدعان والله العظيم)
+ newnode->next;// بنتقل لمكان الادريس عشان اخش علي العنصر الي بعده
+ if(head==0) //لو فالاول اول عنصر خالص الهيد بتاعه بصفر فكلو بيتسااواا
+ {
+    head=temp=newnode;
+ }
+ else
+    {//غير كدا بخلي التيمب بقي الي هي اللنسخه الي هتتقعد تتنقل
+        temp->next=newnode;//اخلي الادريس يشاور علي النيو نود
+ temp=newnode;// والتيمب نفسه يشاور علي النيو نود كعنصر بقي
+
+ }
+
+ cout<<"do you want to continuo(0/1)?\n";
+ cin>>choice;
+
+ }
+  temp=head;//برجعه لاول عنصر عشان الطباعه
+
+ while(temp!=0)
+ {
+     cout<<temp->data<<" ";
+     temp=temp->next;
+ }
+ cout<<endl;
+ cout<<"\nEnter data to insert at pos of the list: "<<endl;
+    cin>>deta>>pos;
+ insert_pos(deta,pos);
+ temp = head;
+        while(temp != NULL)
+        {
+        cout<< temp->data<<" "; // Print data of current node
+            temp = temp->next;                 // Move to next node
+        }
+
+return 0;
+
+}
